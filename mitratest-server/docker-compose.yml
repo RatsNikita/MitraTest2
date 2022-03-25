@@ -1,0 +1,29 @@
+version: '1.0'
+services:
+  server:
+    image: 'mitratest-server:0.0.1-SNAPSHOT'
+    container_name: mitra-server
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mitratest
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+  client:
+    image: 'mitratest-client:0.0.1-SNAPSHOT'
+    container_name: mitra-client
+    ports:
+      - 8081:8081
+  db:
+    image: 'postgres:13.4-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=mitratest
+
+
+
