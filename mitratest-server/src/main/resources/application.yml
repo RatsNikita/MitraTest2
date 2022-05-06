@@ -1,3 +1,10 @@
 spring:
   application:
     name: mitratest-server
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  sql:
+    init:
+      mode: always
+

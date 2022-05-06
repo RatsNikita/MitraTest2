@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface MessageRepository extends JpaRepository<MessageEntity,Long> {
 
-  public List<MessageEntity> findAllByDateBetween(LocalDate from, LocalDate to);
+   List<MessageEntity> findAllByDateBetween(LocalDate from, LocalDate to);
 
 }
